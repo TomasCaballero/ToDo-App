@@ -1,0 +1,142 @@
+.tasksContainer{
+    padding: 30px;
+    max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.752);
+    backdrop-filter: blur(3px);
+    border-radius: 5px;
+}
+.tasksContainer .headerTasks{
+    padding: 0px 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tasksContainer .headerTasks .crearTarea{
+    border: solid 0px transparent;
+    padding: 3px 5px 3px 2px;
+    border-radius: 5px;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(105, 105, 213);
+    transition: all ease-in-out 500ms;
+}
+
+.tasksContainer .headerTasks .crearTarea:hover{
+    color: white;
+    background-color: rgb(48, 48, 131);
+}
+table{
+    max-width: 800px;
+    padding-top: 10px;
+    border-top: solid 1px black;
+}
+td{
+    padding: 10px;
+    text-align: center;
+    object-fit: contain;
+    border-top: solid 1px black;
+}
+td button{
+    padding: 2px 3px 2px 2px;
+    font-size: 17px;
+    border: solid 0px transparent;
+    border-radius: 2px;
+    transition: all ease-in-out 500ms;
+
+}
+td .editar{
+    background-color: rgb(118, 211, 118);
+}
+td .editar:hover{
+    color: white;
+    background-color: rgb(34, 126, 34);
+}
+
+td .eliminar{
+    background-color: rgb(211, 118, 118);
+}
+td .eliminar:hover{
+    color: white;
+    background-color: rgb(151, 36, 36);
+}
+
+.tareasnt{
+    text-align: center;
+}
+
+/* MODAL */
+.modal{
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.915);
+    backdrop-filter: blur(3px);
+    width: 400px;
+    max-width: 90%;
+    padding: 40px 30px 40px 30px;
+    border-radius: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.212);
+    box-shadow: 0px 0px 100px 100px rgba(255, 255, 255, 0.922);
+}
+.close{
+    display: none;
+}
+.modalHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: solid 1px black;
+}
+.btnCerrar{
+    padding: 2px 9px 2px 5px;
+    border: solid 0px transparent;
+    border-radius: 2px;
+    transition: all ease-in-out 500ms;
+    background-color: rgb(211, 118, 118);
+}
+.btnCerrar:hover{
+    color: white;
+    background-color: rgb(151, 36, 36);
+}
+.modalMain{
+    padding-top: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modalMain form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2px;
+}
+.modalMain form input{
+    width: 100%;
+}
+.modalMain form button{
+    border: solid 0px transparent;
+    border-radius: 2px;
+    transition: all ease-in-out 500ms;
+    padding: 2px 0px 2px 0px;
+    background-color: rgb(123, 211, 118);
+}
+.modalMain form button:hover{
+    color: white;
+    background-color: rgb(43, 134, 38);
+}
+
+
+.modalEdit{
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.915);
+    backdrop-filter: blur(3px);
+    width: 400px;
+    max-width: 90%;
+    padding: 40px 30px 40px 30px;
+    border-radius: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.212);
+    box-shadow: 0px 0px 100px 100px rgba(255, 255, 255, 0.922);
+}
