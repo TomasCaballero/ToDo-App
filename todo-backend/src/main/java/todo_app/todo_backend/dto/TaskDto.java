@@ -1,11 +1,14 @@
-package todo_app.todo_backend.entity;
+package todo_app.todo_backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import todo_app.todo_backend.entity.User;
 
 import java.util.Date;
 
@@ -13,20 +16,10 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "tasks")
-public class Task {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TaskDto {
     private Long id;
-    @Column(name = "Title")
     private String title;
-    @Column(name = "Content")
     private String content;
-    @Column(name = "Date")
     private Date date;
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonBackReference
     private User user;
 }
