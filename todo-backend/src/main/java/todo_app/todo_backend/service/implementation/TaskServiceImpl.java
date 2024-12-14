@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import todo_app.todo_backend.dto.TaskDto;
 import todo_app.todo_backend.entity.Task;
+import todo_app.todo_backend.exception.ResourceNotFoundExeption;
 import todo_app.todo_backend.mapper.TaskMapper;
 import todo_app.todo_backend.repository.TaskRepository;
 import todo_app.todo_backend.service.TaskService;
@@ -21,5 +22,12 @@ public class TaskServiceImpl implements TaskService {
         Task task = TaskMapper.mapToTask(taskDto);
         Task savedTask = taskRepository.save(task);
         return TaskMapper.mapToTaskDto(savedTask);
+    }
+
+    @Override
+    public TaskDto getTaskById(Long id) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundExeption("No existe tarea con id "+id));
+        return TaskMapper.mapToTaskDto(task);
     }
 }
