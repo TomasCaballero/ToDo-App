@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import java.util.Date;
 
 @Getter
@@ -29,4 +30,34 @@ public class Task {
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;
+
+//    public Task(Long id, String title, String content, Date date, User user) {
+//        this.id = id;
+//        this.title = title;
+//        this.content = content;
+//        this.date = date;
+//        this.user = user;
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public String getTitle() {
+//        return title;
+//    }
+//
+//    public String getContent() {
+//        return content;
+//    }
+//
+//    public Date getDate() {
+//        return date;
+//    }
+//
+//    public User getUser() {
+//        return user;
+//    }
+
+
 }

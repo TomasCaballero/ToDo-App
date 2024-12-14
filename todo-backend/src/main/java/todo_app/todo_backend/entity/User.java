@@ -7,8 +7,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,8 +32,34 @@ public class User {
     @JsonManagedReference
     private List<Task> tasks = new ArrayList<>();
 
-    /*public void addTask(Task task){
-        tasks.add(task);
-        task.setUser(this);
-    }*/
+
+//    public User(Long id, String name, String email, String password, List<Task> tasks) {
+//        this.id = id;
+//        this.name = name;
+//        this.email = email;
+//        this.password = password;
+//        this.tasks = tasks;
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public List<Task> getTasks() {
+//        return tasks;
+//    }
+
+
 }
