@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import todo_app.todo_backend.entity.User;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -17,7 +18,7 @@ public class TaskDto {
     private Long id;
     private String title;
     private String content;
-    private Date date;
+    private LocalDate date;
     private User user;
 
 //    public TaskDto(Long id, String title, String content, Date date, User user) {

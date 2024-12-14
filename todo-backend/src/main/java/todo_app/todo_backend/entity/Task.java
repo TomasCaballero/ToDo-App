@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -25,7 +26,7 @@ public class Task {
     @Column(name = "Content")
     private String content;
     @Column(name = "Date")
-    private Date date;
+    private LocalDate date;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
