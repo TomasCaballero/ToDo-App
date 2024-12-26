@@ -10,6 +10,9 @@ import todo_app.todo_backend.mapper.UserMapper;
 import todo_app.todo_backend.repository.UserRepository;
 import todo_app.todo_backend.service.UserService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 @AllArgsConstructor
@@ -31,6 +34,16 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new ResourceNotFoundExeption("No existe empleado con id "+id));
 
         return UserMapper.mapToUserDto(user);
+    }
+
+    @Override
+    public List<UserDto> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        List<UserDto> usersDto = new ArrayList<>();
+        for (User user: users){
+            usersDto.add(UserMapper.mapToUserDto(user));
+        }
+        return usersDto;
     }
 
 

@@ -11,6 +11,8 @@ import todo_app.todo_backend.dto.UserDto;
 import todo_app.todo_backend.entity.User;
 import todo_app.todo_backend.service.UserService;
 
+import java.util.List;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/users")
@@ -30,4 +32,11 @@ public class UserController {
         UserDto userDto = userService.getUserById(id);
         return ResponseEntity.ok(userDto);
     }
+
+    @GetMapping
+    public ResponseEntity<List<UserDto>> getAllUsers(){
+        List<UserDto> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
+
 }
