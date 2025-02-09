@@ -30,4 +30,18 @@ public class TaskServiceImpl implements TaskService {
                 .orElseThrow(()-> new ResourceNotFoundExeption("No existe tarea con id "+id));
         return TaskMapper.mapToTaskDto(task);
     }
+
+    @Override
+    public TaskDto updateTask(Long id, TaskDto updateTask) {
+        Task task = taskRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundExeption("No existe tarea con id "+ id)
+        );
+        task.setTitle(updateTask.getTitle());
+        task.setContent(updateTask.getContent());
+
+        Task updateTaskObj = taskRepository.save(task);
+        return TaskMapper.mapToTaskDto(updateTaskObj);
+    }
+
+
 }
