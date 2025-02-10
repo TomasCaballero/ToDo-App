@@ -43,5 +43,14 @@ public class TaskServiceImpl implements TaskService {
         return TaskMapper.mapToTaskDto(updateTaskObj);
     }
 
+    @Override
+    public void deleteTask(Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundExeption("No existe tarea con id "+id)
+        );
+
+        taskRepository.deleteById(id);
+    }
+
 
 }
