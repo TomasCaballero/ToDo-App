@@ -4,6 +4,8 @@ import "./UserStyle.css"
 const User = () => {
     const [tasks, setTasks] = useState([]);
     const [modal, setModal] = useState(false);
+    const [modalEdit, setModalEdit] = useState(false);
+    const [idTareaEditar, setIdTareaEditar] = useState(null);
     
     useEffect(()=>{
         let tasksLocalStorage = JSON.parse(localStorage.getItem("user")).tasks;
@@ -15,6 +17,11 @@ const User = () => {
     const abrirModal = (boolean) => {
         setModal(boolean); // Cambia el estado del modal (abrir o cerrar)
     };
+
+    const abrirModalEdit = (boolean, id) => {
+        setModalEdit(boolean);
+        setIdTareaEditar(id);
+    }
 
     const crearTarea = (e) =>{
         e.preventDefault();
@@ -72,7 +79,6 @@ const User = () => {
     };
 
     const eliminarTarea = async (id) => {
-        const nuevasTareas = tasks.filter((task) => task.id !== id);
         try {
             const response = await fetch(`/api/tasks/${id}`, {
               method: "DELETE",
@@ -91,6 +97,48 @@ const User = () => {
 
     }
       
+    const editarTarea = (e) => {
+        e.preventDefault();
+        let newTitle = e.target.title.value;
+        let newContent = e.target.content.value;
+
+        if(newTitle && newContent){
+            let taskEdit = {
+                id: idTareaEditar,
+                title: newTitle,
+                date: obtenerFechaActual(),
+                content: newContent
+            };
+            editar(taskEdit);
+        }else{
+            alert("Ambos campos son obligatorios.");
+        }
+    }
+
+    const editar = async (task) => {
+        try {
+            const response = await fetch(`/api/tasks/${idTareaEditar}`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(task),
+            });
+      
+            if (!response.ok) {
+              throw new Error('Error al actualizar los datos');
+            }
+      
+            setTasks((prevTasks) =>
+                prevTasks.map((t) => (t.id === task.id ? task : t))
+            );
+    
+            alert('Tarea actualizada con éxito');
+            setModalEdit(false);
+          } catch (error) {
+            console.error('Error:', error);
+          }
+    }
     
   
   
@@ -114,7 +162,7 @@ const User = () => {
                                         <p>{task.title}</p>
                                         <p>{task.content}</p>
                                         <div className="controller">
-                                            <button>Editar</button>
+                                            <button onClick={()=>abrirModalEdit(true, task.id)}>Editar</button>
                                             <button onClick={()=>eliminarTarea(task.id)}>Eliminar</button>
                                         </div>
                                     </div>
@@ -138,6 +186,20 @@ const User = () => {
                 <input type="text" name="title" placeholder="Ingrese el título" />
                 <input type="text" name="content" placeholder="Ingrese el contenido" />
                 <button type="submit">Crear</button>
+            </form>
+        </div>
+    </div>
+
+    <div className={modalEdit === false ? "editarTareaModal modal modalClose" : "editarTareaModal modal"}>
+        <div className="modalHeader">
+            <p>Editar tarea:</p>
+            <button className="btnCerrar" onClick={() => abrirModalEdit(false, null)}>X</button>
+        </div>
+        <div className="modalContent">
+            <form onSubmit={editarTarea} className="modalContent">
+                <input type="text" name="title" placeholder="Ingrese el título" />
+                <input type="text" name="content" placeholder="Ingrese el contenido" />
+                <button type="submit">Guardar</button>
             </form>
         </div>
     </div>
