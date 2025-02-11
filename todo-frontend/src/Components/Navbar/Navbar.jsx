@@ -11,19 +11,19 @@ const Navbar = ({user, setUser}) => {
   return (
     <nav>
         <div className="logoContainer">
-            <p>Logo</p>
+            <img src="public/img/logo.png" alt="logo" className="logo"/>
         </div>
         
         <ul>
         {!user ? (
           <>
             <li>
-              <NavLink to="/login">
+              <NavLink to="/login" className="link">
                 <p>Login</p>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/signup">
+              <NavLink to="/signup" className="link">
                 <p>SignUp</p>
               </NavLink>
             </li>

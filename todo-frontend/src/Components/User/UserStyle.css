@@ -1,11 +1,13 @@
 .userContainer{
-    background-color: rgb(134, 95, 95);
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
     min-width: 60vw;
     max-width: 100vw;
     display: flex;
     flex-direction: column;
     padding: 50px;
     gap: 10px;
+    border-radius: 10px;
 }
 .userContainer .tasksHeader{
     display: flex;
@@ -18,6 +20,16 @@
 }
 .userContainer .tasksHeader button{
     padding: 7px;
+    color: black;
+    border: solid 1px white;
+    border-radius: 10px;
+    background-color: white;
+    transition: all ease-in-out 500ms;
+}
+
+.userContainer .tasksHeader .btnCrear:hover{
+    background-color: rgb(17, 77, 0);
+    color: rgb(255, 255, 255);
 }
 
 .userContainer .tasksContainer{
@@ -32,21 +44,36 @@
     flex-wrap: wrap;
     padding: 20px;
     gap: 20px;
-    border: solid 1px black;
+    border: solid 1px rgba(255, 255, 255, 0.203);
+    border-radius: 5px;
 }
+
 .userContainer .tasksContainer .task .controller{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 5px;
 }
 
 .userContainer .tasksContainer .task .controller button{
     width: 100%;
-    padding: 3px;
+    padding: 4px;
+    color: black;
+    border: solid 1px white;
+    border-radius: 10px;
+    background-color: white;
+    transition: all ease-in-out 500ms;
+}
+.userContainer .tasksContainer .task .controller .btnEditar:hover{
+    background-color: rgb(1, 0, 74);
+    color: white;
 }
 
+.userContainer .tasksContainer .task .controller .btnEliminar:hover{
+    background-color: rgb(94, 0, 0);
+    color: white;
+}
 /* ---------- Modal General -------------------------------- */
 
 .modal{
@@ -90,14 +117,42 @@
     display: none;
 }
 /* --------------- Modal Nueva Tarea ----------------------- */
-.nuevaTareaModal{
-    background-color: green;
+.modal{
+    background-color: rgba(0, 0, 0, 0.683);
+    backdrop-filter: blur(5px);
+    border: solid 1px white;
+    border-radius: 10px;
     box-shadow: 0px 0px 400px 200px black;
+    gap: 20px;
 }
-
-/* --------------- Modal Editar Tarea ----------------------- */
-.editarTareaModal{
-    background-color: rgb(201, 78, 193);
-    box-shadow: 0px 0px 400px 200px black;
+.modal .modalHeader p{
+    font-size: 20px;
 }
-
+.modal .modalHeader button{
+    color: black;
+    background-color: white;
+    border: solid 1px white;
+    border-radius: 2px;
+    transition: all ease-in-out 500ms;
+}
+.modal .modalHeader button:hover{
+    color: white;
+    background-color: black;
+}
+.modal .modalContent .modalContent input{
+    color: black;
+    border: solid 1px white;
+    border-radius: 5px;
+}
+.modal .modalContent .modalContent button{
+    color: black;
+    background-color: white;
+    border: solid 1px white;
+    border-radius: 2px;
+    padding: 7px 10px;
+    transition: all ease-in-out 500ms;
+}
+.modal .modalContent .modalContent button:hover{
+    color: white;
+    background-color: black;
+}

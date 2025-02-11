@@ -148,7 +148,7 @@ const User = () => {
     <div className="userContainer">
         <div className="tasksHeader">
             <p>Mis Tareas:</p>
-            <button onClick={() => abrirModal(true)}>Nueva Tarea</button>
+            <button onClick={() => abrirModal(true)} className="btnCrear">Nueva Tarea</button>
         </div>
         <div className="tasksContainer">
             {
@@ -162,8 +162,8 @@ const User = () => {
                                         <p>{task.title}</p>
                                         <p>{task.content}</p>
                                         <div className="controller">
-                                            <button onClick={()=>abrirModalEdit(true, task.id)}>Editar</button>
-                                            <button onClick={()=>eliminarTarea(task.id)}>Eliminar</button>
+                                            <button onClick={()=>abrirModalEdit(true, task.id)} className="btnEditar">Editar</button>
+                                            <button onClick={()=>eliminarTarea(task.id)} className="btnEliminar">Eliminar</button>
                                         </div>
                                     </div>
                                 );

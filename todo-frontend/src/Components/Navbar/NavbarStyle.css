@@ -11,6 +11,10 @@ nav{
     align-items: center;
     padding: 30px 100px;
     font-size: 20px;
+    border-bottom: solid 2px white;
+}
+nav .logo{
+    width: 40px;
 }
 nav ul{
     display: flex;
@@ -19,8 +23,16 @@ nav ul{
 }
 nav ul li{
     list-style: none;
+    text-decoration: none;
+}
+.link{
+    text-decoration: none;
+    transition: all 500ms ease-in-out;
+}
+.link:hover{
+    text-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
 nav ul li p{
-    color: black;
+    list-style: none;
     text-decoration: none;
 }

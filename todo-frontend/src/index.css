@@ -3,6 +3,7 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: monospace;
+  color: white;
 }
 
 body{
@@ -11,4 +12,8 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url("public/img/fondo.png");
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
 }
