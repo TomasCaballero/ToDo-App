@@ -71,7 +71,25 @@ const User = () => {
         }
     };
 
+    const eliminarTarea = async (id) => {
+        const nuevasTareas = tasks.filter((task) => task.id !== id);
+        try {
+            const response = await fetch(`/api/tasks/${id}`, {
+              method: "DELETE",
+            });
+        
+            if (response.ok) {
+              alert("Tarea eliminada con éxito");
+              setTasks(tasks.filter((task) => task.id !== id)); // Actualiza el estado
+            } else {
+              alert("Error al eliminar la tarea");
+            }
+          } catch (error) {
+            console.error("Error en la solicitud DELETE:", error);
+            alert("No se pudo completar la solicitud");
+          }
 
+    }
       
     
   
@@ -97,7 +115,7 @@ const User = () => {
                                         <p>{task.content}</p>
                                         <div className="controller">
                                             <button>Editar</button>
-                                            <button>Eliminar</button>
+                                            <button onClick={()=>eliminarTarea(task.id)}>Eliminar</button>
                                         </div>
                                     </div>
                                 );
